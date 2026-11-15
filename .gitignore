@@ -1,0 +1,7 @@
+.env
+**/bin/
+**/obj/
+.vs/
+*.csproj.user
+*.suo
+**/appsettings.Development.json

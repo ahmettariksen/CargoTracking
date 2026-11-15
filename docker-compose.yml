@@ -1,0 +1,18 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: CargoTracking.API/Dockerfile
+    container_name: cargotracking-api
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: 8080
+      Redis__ConnectionString: host.docker.internal:1999 # Mevcut Redis container'ına bağlanmasını sağladık.
+      RabbitMQ__HostName: host.docker.internal # Mevcut RabbitMQ container'ına bağlanmasını sağladık.
+      RabbitMQ__Port: 5672
+    env_file:
+      - .env
+
+    
